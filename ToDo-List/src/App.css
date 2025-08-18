@@ -1,0 +1,154 @@
+/* ------- base / theme ------- */
+:root {
+  --bg: #0f1221;
+  --card: rgba(255, 255, 255, .06);
+  --muted: #a7adbd;
+  --text: #e9ecf1;
+  --accent: #7c5cff;
+  --accent-2: #4dd0e1;
+  --danger: #ff6b6b;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 800px at 10% 10%, rgba(124, 92, 255, .25), transparent 60%),
+    radial-gradient(1000px 600px at 90% 30%, rgba(77, 208, 225, .18), transparent 60%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+/* ------- app card ------- */
+div>form {
+  backdrop-filter: blur(10px);
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  width: min(680px, 92vw);
+  margin: 0 auto 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: end;
+}
+
+form label {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+  letter-spacing: .2px;
+  color: var(--muted);
+}
+
+form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, .06);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s, transform .05s;
+}
+
+form input::placeholder {
+  color: #c7ccda88;
+}
+
+form input:focus {
+  border-color: rgba(124, 92, 255, .7);
+  box-shadow: 0 0 0 6px rgba(124, 92, 255, .15);
+  background: rgba(255, 255, 255, .08);
+}
+
+/* ------- buttons ------- */
+button {
+  padding: 12px 16px;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 600;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow: 0 8px 22px rgba(124, 92, 255, .35);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ------- list region ------- */
+.task-region {
+  width: min(680px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+}
+
+.hehe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .10);
+  border-radius: var(--radius);
+  transition: background .2s, border-color .2s, transform .06s;
+  backdrop-filter: blur(6px);
+}
+
+.hehe:hover {
+  background: rgba(255, 255, 255, .09);
+  border-color: rgba(255, 255, 255, .18);
+  transform: translateY(-1px);
+}
+
+/* make the inline Delete button look distinct */
+.hehe>button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: var(--danger);
+  box-shadow: none;
+  padding: 8px 12px;
+}
+
+.hehe>button:hover {
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .06);
+}
+
+@media (max-width: 520px) {
+  div>form {
+    grid-template-columns: 1fr;
+  }
+}
