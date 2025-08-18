@@ -22,7 +22,7 @@ const App = () => {
   const year = currentDate.getFullYear();
   const formattedDate = `${month}${day}${year}`;
 
-  const API_KEY = "d718ce7ee83f3aea3f4e881fc043e36c";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   const fetchWeatherData = async () => {
     try {
